@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!--
   Copyright (c) 2006, 2024, Oracle and/or its affiliates.
 
@@ -18,19 +17,15 @@
   You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.mysql</groupId>
   <artifactId>mysql-connector-j</artifactId>
   <version>8.4.0-lineaje-01</version>
   <packaging>jar</packaging>
-
   <name>MySQL Connector/J</name>
   <description>JDBC Type 4 driver for MySQL.</description>
   <url>http://dev.mysql.com/doc/connector-j/en/</url>
-
   <licenses>
     <license>
       <name>The GNU General Public License, v2 with Universal FOSS Exception, v1.0</name>
@@ -38,12 +33,10 @@
       <comments>For detailed license information see the LICENSE file in this distribution.</comments>
     </license>
   </licenses>
-
   <organization>
     <name>Oracle Corporation</name>
     <url>https://www.oracle.com/</url>
   </organization>
-
   <developers>
     <developer>
       <name>Filipe Silva</name>
@@ -52,19 +45,18 @@
       <organizationUrl>https://www.oracle.com/</organizationUrl>
     </developer>
   </developers>
-
   <scm>
-    <connection>scm:git:git@github.com:mysql/mysql-connector-j.git</connection>
-    <url>https://github.com/mysql/mysql-connector-j</url>
+    <connection>scm:git:mysql-mysql-connector-j</connection>
+    <developerConnection>scm:git:mysql-mysql-connector-j</developerConnection>
+    <url>mysql-mysql-connector-j</url>
+    <tag>8.4.0-lineaje-01</tag>
   </scm>
-
   <dependencies>
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
       <version>3.25.9</version>
     </dependency>
-
     <dependency>
       <groupId>com.oracle.oci.sdk</groupId>
       <artifactId>oci-java-sdk-common</artifactId>
@@ -72,4 +64,34 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
+  <contributors>
+    <contributor>
+      <name>Lineaje DepFixer</name>
+      <email>221268890+Lineaje-DepFixer@users.noreply.github.com</email>
+    </contributor>
+  </contributors>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+          </gpgArguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
